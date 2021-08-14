@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/08/13 19:58:39.000.172,C:\Users\jvrs_\Desktop\API\API.dproj=C:\Users\jvrs_\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2021/08/13 20:09:24.000.797,=C:\Users\jvrs_\Desktop\API\Unit1.pas</Transaction>
+    <Transaction>2021/08/13 20:09:40.000.988,C:\Users\jvrs_\Desktop\API\Unit1.pas=C:\Users\jvrs_\Desktop\API\Sr.Connection.pas</Transaction>
+    <Transaction>2021/08/13 20:10:00.000.530,=C:\Users\jvrs_\Desktop\API\Unit1.pas</Transaction>
+    <Transaction>2021/08/13 20:17:17.000.317,=C:\Users\jvrs_\Desktop\API\Unit1.pas</Transaction>
+    <Transaction>2021/08/13 20:17:26.000.898,C:\Users\jvrs_\Desktop\API\Unit1.pas=C:\Users\jvrs_\Desktop\API\Sr.Usuarios.pas</Transaction>
+    <Transaction>2021/08/13 20:24:18.000.598,=C:\Users\jvrs_\Desktop\API\Unit1.pas</Transaction>
+    <Transaction>2021/08/13 20:24:34.000.487,C:\Users\jvrs_\Desktop\API\Unit1.pas=C:\Users\jvrs_\Desktop\API\Sr.Padroes.pas</Transaction>
+    <Transaction>2021/08/13 23:08:58.781,=C:\Users\jvrs_\Desktop\API\Unit1.pas</Transaction>
+    <Transaction>2021/08/13 23:59:31.927,=C:\Users\jvrs_\Desktop\API\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

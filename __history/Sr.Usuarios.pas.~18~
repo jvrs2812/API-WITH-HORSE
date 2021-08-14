@@ -1,0 +1,42 @@
+unit Sr.Usuarios;
+
+interface
+
+
+uses FireDAC.Stan.Intf, FireDAC.Stan.Option,
+     FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+     FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
+     FireDAC.Phys.FBDef, FireDAC.ConsoleUI.Wait, Data.DB, FireDAC.Comp.Client,
+     Sr.Connection,Sr.Padroes,Horse,FireDAC.DApt;
+
+     procedure Routes;
+     procedure Get(Req:THorseRequest; Res:THorseResponse; next : TProc);
+     procedure Post(Req:THorseRequest; Res:THorseResponse; next : TProc);
+implementation
+
+
+procedure Get(Req:THorseRequest; Res:THorseResponse; next : TProc);
+var FDCon  : TFDConnection;
+    Tabela : TFDQuery;
+    JSON   : String;
+begin
+  FDCon := GetConnection;
+
+  Tabela := TFDQuery.Create(nil);
+  Tabela.Close;
+  Tabela.SQL.Clear;
+  Tabela.SQL.Add('Select * from FTCADUSU');
+  Tabela.Connection := FDCon;
+  Tabela.Open;
+
+  Res.Send(ConverteTabelaJson(Tabela));
+end;
+
+procedure Routes;
+begin
+  THorse.Get('User',Get);
+  THorse.Post('User',Post);
+end;
+
+
+end.

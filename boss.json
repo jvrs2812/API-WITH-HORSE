@@ -1,0 +1,13 @@
+{
+	"name": "API",
+	"description": "",
+	"version": "1.0.0",
+	"homepage": "",
+	"mainsrc": "./",
+	"projects": [],
+	"dependencies": {
+		"github.com/gabrielbaltazar/gbswagger": "^2.1.4",
+		"github.com/hashload/horse": "^2.0.13",
+		"github.com/viniciussanchez/dataset-serialize": "^v2.3.3"
+	}
+}

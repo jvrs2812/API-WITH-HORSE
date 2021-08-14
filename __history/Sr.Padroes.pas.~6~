@@ -1,0 +1,47 @@
+unit Sr.Padroes;
+
+interface
+
+uses FireDAC.Stan.Intf, FireDAC.Stan.Option,
+     FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+     FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
+     FireDAC.Phys.FBDef, FireDAC.ConsoleUI.Wait, Data.DB, FireDAC.Comp.Client,Sr.Connection,
+     DBClient,System.JSON;
+
+implementation
+
+
+function ConverteTabelaJson(FDQuery : TFDQuery) : String;
+Var field_name, Columnname, ColumnValue : String;
+    I: Integer;
+
+    LJSONObject:TJsonObject;
+begin
+    LJSONObject:= TJSONObject.Create;
+    FDQuery.First;
+    while not FDQuery.Eof do
+    begin
+      for I := 0 to FDQuery.FieldDefs.Count-1 do
+      begin
+        ColumnName  := FDQuery.FieldDefs[I].Name;
+        Case FDQuery.FieldDefs[I].Datatype of
+            ftBoolean:
+              IF FDQuery.FieldDefs[I] = True then   LJSONObject.AddPair(TJSONPair.Create(TJSONString.Create( ColumnName),TJSONTrue.Create)) else
+                LJSONObject.AddPair(TJSONPair.Create(TJSONString.Create( ColumnName),TJSONFalse.Create));
+            ftInteger,ftFloat{,ftSmallint,ftWord,ftCurrency} :
+              LJSONObject.AddPair(TJSONPair.Create(TJSONString.Create( ColumnName),TJSONNumber.Create(FDQuery.FieldDefs[I].value)));
+            ftDate,ftDatetime,ftTime:
+             LJSONObject.AddPair(TJSONPair.Create(TJSONString.Create( ColumnName),TJSONString.Create(FDQuery.FieldDefs[I].AsString)));
+  //or TJSONString.Create(formatDateTime('dd/mm/yyyy',FDQuery.FieldDefs[I].Value));
+            else LJSONObject.AddPair(TJSONPair.Create(TJSONString.Create( ColumnName),TJSONString.Create(FDQuery.FieldDefs[I].AsString)));
+        End;
+      end;
+
+      FDQuery.Next;
+    end;
+    FDQuery.Free;
+    Result := LJSonObject.ToString;
+end;
+
+end.
+

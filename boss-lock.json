@@ -1,0 +1,30 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2021-08-13T20:07:41.7595849-03:00",
+	"installedModules": {
+		"github.com/gabrielbaltazar/gbswagger": {
+			"name": "gbswagger",
+			"version": "2.1.4",
+			"hash": "e2f15009a75b8c1d8a652a57ff73c828",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/hashload/horse": {
+			"name": "horse",
+			"version": "2.0.13",
+			"hash": "985da2054d3c705bc211797c653e47ba",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/viniciussanchez/dataset-serialize": {
+			"name": "dataset-serialize",
+			"version": "v2.3.3",
+			"hash": "65a1995f3a283f09382722a7a8c21d1a",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}

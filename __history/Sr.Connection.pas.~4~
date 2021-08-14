@@ -1,0 +1,25 @@
+unit Sr.Connection;
+
+interface
+
+uses FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
+  FireDAC.Phys.FBDef, FireDAC.ConsoleUI.Wait, Data.DB, FireDAC.Comp.Client;
+
+implementation
+
+
+function GetConnection : TFDConnection;
+var FDCon : TFDConnection;
+begin
+  FDCon := TFDConnection.Create(nil);
+  FDCon.Params.UserName := 'sysdba';
+  FDCon.Params.Password := 'masterkey';
+  FDCon.Params.Database := 'C:/Dados/Api/Api.FDB';
+  FDCon.Connected := True;
+
+  Result := FDCon;
+end;
+
+end.

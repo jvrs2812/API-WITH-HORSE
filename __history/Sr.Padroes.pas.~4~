@@ -1,0 +1,25 @@
+unit Sr.Padroes;
+
+interface
+
+uses FireDAC.Stan.Intf, FireDAC.Stan.Option,
+     FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+     FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
+     FireDAC.Phys.FBDef, FireDAC.ConsoleUI.Wait, Data.DB, FireDAC.Comp.Client,Sr.Connection,
+     DBClient,System.JSON;
+
+implementation
+
+
+function ConverteTabelaJson(Tabela : TFDQuery) : String;
+var JsonValue : TJSOnValue;
+begin
+  JsonValue := TJSonValue.Create;
+
+//  JsonValue.LoadFromDataset('',Tabela,True);
+
+  Result := JSonValue.ToString();
+end;
+
+end.
+
